@@ -1,14 +1,14 @@
-number = np.random.randint(1,100)    # загадали число
+number = np.random.randint(1,100)    # загаданное число компьютером
 n_min = 1
-n_max = 100
+n_max = 100        #пределы для ускорения подбора
 count = 0
-while True:        # более компактный вариант счетчика
-    predict = (n_min+n_max)//2 # предполагаемое число
+while True:        # счетчик
+    predict = (n_min+n_max)//2 # предполагаемое число наше
     count +=1
-    if number == predict: break    # выход из цикла, если угадали
-    elif number > predict: 
+    if number == predict: break    # выход из цикла, если угадали число
+    elif number > predict:         # если загаданное число компьютером больше нашего, то сдвигаем нижнюю границу поиска на половину вверх
         n_min = predict+1
-    elif number < predict: 
+    elif number < predict:         # если загаданное число компьютером меньше нашего, то сдвигаем верхнюю границу поиска на половину вниз
         n_max = predict-1
                
-print (f"Вы угадали число {number} за {count} попыток.")
+print (f"Вы угадали число {number} за {count} попыток.")      # выводим количество попыток, за которое угадали число
